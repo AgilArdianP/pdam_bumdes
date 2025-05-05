@@ -10,10 +10,13 @@ const penggunaanRoutes = require('./routes/penggunaanRoutes');
 const tagihanRoutes = require('./routes/tagihanRoutes');
 const pembayaranRoutes = require('./routes/pembayaranRoutes');
 const dashboardRoutes = require('./routes/dashboardRoutes');
+const backupRoutes = require('./routes/backupRoutes');
+const reportsRoutes = require('./routes/reportsRoutes');
+const tarifRoutes = require('./routes/tarifRoutes');
 
 app.use(express.json());
 app.use(cors({
-  origin: 'http://localhost:5173'
+  origin: 'pdambumdes-production.up.railway.app'
 }));
 app.use(express.urlencoded({ extended: true }));
 
@@ -23,6 +26,9 @@ app.use('/api/penggunaan', penggunaanRoutes);
 app.use('/api/tagihan', tagihanRoutes);
 app.use('/api/pembayaran', pembayaranRoutes);
 app.use('/api/dashboard', dashboardRoutes);
+app.use("/api/reports", reportsRoutes);
+app.use("/api/backup", backupRoutes);
+app.use("/api/tarif_penggunaan", tarifRoutes);
 
 app.use('/uploads', express.static('uploads'));
 

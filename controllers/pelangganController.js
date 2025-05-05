@@ -1,4 +1,5 @@
 const db = require ('../config/db');
+const { logAudit } = require("../helpers/auditLogger");
 
 exports.createPelanggan = async (req, res) => {
     try {
@@ -8,6 +9,7 @@ exports.createPelanggan = async (req, res) => {
             [nama, alamat, jenis_pelayanan, keterangan]
         );
         res.status(201).json({ message: 'Pelanggan berhasil ditambahkan', id: result.insertId });
+        await logAudit(req.user.id, "CREATE_PELANGGAN", `Pelanggan ${nama} ditambahkan.`);
     } catch (err) {
         res.status(500).json({ message: 'Gagal menambahkan pelanggan' });
     }
