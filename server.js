@@ -16,7 +16,7 @@ const tarifRoutes = require('./routes/tarifRoutes');
 
 app.use(express.json());
 app.use(cors({
-  origin: 'pdambumdes-production.up.railway.app'
+  origin: 'https://pdambumdes-production.up.railway.app'
 }));
 app.use(express.urlencoded({ extended: true }));
 
