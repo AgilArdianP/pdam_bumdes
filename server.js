@@ -16,8 +16,13 @@ const tarifRoutes = require('./routes/tarifRoutes');
 
 app.use(express.json());
 app.use(cors({
-  origin: 'https://pdambumdes-production.up.railway.app'
+  origin: [
+    'https://pdambumdes-production.up.railway.app',  // Domain backend (untuk akses dari backend ke frontend jika diperlukan)
+    'https://pdam-frontend.vercel.app',             // Domain frontend
+  ],
+  credentials: true  // Pastikan ini ada jika kamu membutuhkan cookies/session
 }));
+
 app.use(express.urlencoded({ extended: true }));
 
 app.use('/api/auth', authRoutes);
