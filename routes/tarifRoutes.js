@@ -1,7 +1,7 @@
 // routes/tarifRoutes.js
 const express = require("express");
 const router = express.Router();
-const tarifController = require("../controllers/settingController");
+const settingController = require("../controllers/settingController");
 const { verifyToken } = require("../middlewares/authMiddleware");
 
 // Pastikan setiap request diverifikasi token-nya jika perlu
